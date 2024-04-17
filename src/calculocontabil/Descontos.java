@@ -49,4 +49,46 @@ public class Descontos {
 		}
 		return IRPF;
 	}
+	
+	public static double ValeTransporte (double salario, double totalConducoes){
+		
+		if((salario*0.06) <= totalConducoes){ //Evitando que seja descontado mais do que o funcionario precisa
+		VT = (salario*0.06);
+		} else {
+			VT = totalConducoes;
+		}
+		return VT;
+	}
+	
+	
+	public static double ValeRefeicao (double salario, double totalVR){
+		if(salario <= 1412){
+			VR = 0;
+		} else if((salario*0.03 > totalVR)){
+			VR = totalVR;
+		} else{
+			VR = (salario*0.03);
+		}
+		return VR;
+	}
+	
+	public static double ConvenioMedico (double salario){
+		if(salario <= 1412){
+			convenioMedico = 0;
+		} else{
+			convenioMedico = (salario*0.04); 
+		}
+		return convenioMedico;
+	}
+	
+	public static double ValeAlimentacao(double salario, double totalVA){
+		if(salario <= 4.236){ //3 salarios minimos
+			VA = 0;
+		} else if((salario*0.02) > totalVA*0.2){ //o desconto maximo do funcionario é 20% do valor do VA
+			VA = totalVA*0.2;
+		} else{
+			VA = salario*0.02;
+		}
+		return VA;
+	}
 }
