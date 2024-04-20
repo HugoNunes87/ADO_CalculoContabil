@@ -3,7 +3,7 @@ package calculocontabil;
 public class Ganhos {
 	public static double salario, bonus, horaExtra, total;
 	
-	public static double HoraExtra(double salario, int cargaHorariaMensal, double horasExtras){
+	public static double HoraExtra(double salario, double cargaHorariaMensal, double horasExtras){
 		
 		double salarioHora = salario/cargaHorariaMensal;
 		
