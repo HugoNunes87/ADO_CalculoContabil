@@ -6,6 +6,8 @@ public class Funcionario {
 	static public String nome;
 	static public double salarioBruto, salarioLiquido, vt, totalVT, vr, convenioMedico, va, irpf, inss, hrExtra, bonus, jnHora;
 	static boolean recebeVT;
+	static public int quantDependente;
+        
 	
 	public String GetNome(){
 		return nome;
@@ -17,6 +19,7 @@ public class Funcionario {
 		String ophrextra;
 		String opJornada;
 		String opBoni;
+		String quantDep;
 		
 		System.out.println(" _______________________________________________________________");
 		System.out.println("|\t\t\t\t\t\t\t\t|");
@@ -137,6 +140,23 @@ public class Funcionario {
 				}
 			} while (!opBoni.equals("s") && !opBoni.equals("n"));
                         
+                        
+                        do { // Inserir Qunatidade de Dependentes
+				System.out.print("O funcionáio possui dependentes?(s/n)");
+				quantDep = reader.nextLine();
+			switch (quantDep){
+				case "s":
+					System.out.printf("|\t Informa a quantidade de dependentes do funcionário: ");
+					funcionarios[i].quantDependente = reader.nextInt();
+                                        reader.nextLine();
+					break;
+				case "n":				
+					bonus = 0;
+					break;
+				default:
+					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
+				}
+			} while (!quantDep.equals("s") && !quantDep.equals("n"));
                         
                         
                         // Descontos
