@@ -18,9 +18,21 @@ public class Funcionario {
 		System.out.println("|\t\t\t\t\t\t\t\t|");
 		System.out.println("|\t\t\t Bem vindo ao Holeri+ \t\t\t|");
 		System.out.println("|_______________________________________________________________|");
-		System.out.printf("      Digite quantos funcionarios você deseja cadastrar: ");
-		int qtdFuncionarios = reader.nextInt();
-		reader.nextLine();
+		//System.out.printf("      Digite quantos funcionarios você deseja cadastrar: ");
+		//int qtdFuncionarios = reader.nextInt();
+		//reader.nextLine();
+                
+                int qtdFuncionarios = 0; // Variável para armazenar o número de funcionários
+                
+                while (true) {
+                    try {
+                        System.out.print("Digite quantos funcionários você deseja cadastrar: ");
+                        qtdFuncionarios = Integer.parseInt(reader.nextLine());
+                        break; // Sai do loop se a entrada for um número inteiro válido
+                } catch (NumberFormatException e) {
+                    System.out.println("Por favor, insira um número válido.");
+            }
+                }        
 		
 		for(int i = 0; i < qtdFuncionarios; i++){
 			Funcionario[] funcionarios = new Funcionario[qtdFuncionarios];
