@@ -141,7 +141,7 @@ public class Funcionario {
 			} while (!opBoni.equals("s") && !opBoni.equals("n"));
                         
                         
-                        do { // Inserir Qunatidade de Dependentes
+                        do { // Inserir Quantidade de Dependentes
 				System.out.print("O funcionáio possui dependentes?(s/n)");
 				quantDep = reader.nextLine();
 			switch (quantDep){
