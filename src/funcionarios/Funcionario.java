@@ -1,4 +1,5 @@
 package funcionarios;
+import calculocontabil.Descontos;
 import calculocontabil.Ganhos;
 import java.util.Scanner;
 
@@ -165,9 +166,8 @@ public class Funcionario {
 				}
 			} while (!quantDep.equals("s") && !quantDep.equals("n"));
                         
-                        System.out.println(funcionarios[i].nome +" " + funcionarios[i].salario +" "+ funcionarios[i].totalVT  + " " + funcionarios[i].jornadaTrabalho + " " + funcionarios[i].horasExtras+ " " + funcionarios[i].quantDependente);
-                        
-
+                       
+                       
                         
                         // Descontos
                         
@@ -233,9 +233,13 @@ public class Funcionario {
                         
                        
                         
-                        //funcionarios[i].salarioTributavel = Ganhos.GanhosTotais(salarioBruto, , hrExtra, qtdFuncionarios);
+                      System.out.println(funcionarios[i].nome +" " + funcionarios[i].salario +" "+ funcionarios[i].totalVT  + " " + funcionarios[i].jornadaTrabalho + " " + funcionarios[i].horasExtras+ " " + funcionarios[i].quantDependente+ " " + funcionarios[i].totalVR+ " " + funcionarios[i].totalVA+ " " + funcionarios[i].convenioMedico);
                         
-                        
+                      double DescontoVR = Descontos.ValeRefeicao(salario, totalVR);
+                      
+                     System.out.println(DescontoVR);
+                      
+                      
                         
             }
         }

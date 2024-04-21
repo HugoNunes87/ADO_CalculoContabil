@@ -63,12 +63,10 @@ public class Descontos {
 	
 	public static double ValeRefeicao (double salario, double totalVR){
 		if(salario <= 1412){
-			VR = 0;
-		} else if((salario*0.03 > totalVR)){
-			VR = totalVR;
-		} else{
-			VR = (salario*0.03);
-		}
+                    VR = 0;
+		} else {
+                    VR = totalVR * 0.03;
+		} 
 		return VR;
 	}
 	
