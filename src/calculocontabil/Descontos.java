@@ -50,12 +50,12 @@ public class Descontos {
 		return IRPF;
 	}
 	
-	public static double ValeTransporte (double salario, double totalConducoes){
+	public static double ValeTransporte (double salario, double totalVT){
 		
-		if((salario*0.06) <= totalConducoes){ //Evitando que seja descontado mais do que o funcionario precisa
+		if((salario*0.06) <= totalVT){ //Evitando que seja descontado mais do que o funcionario precisa
 		VT = (salario*0.06);
 		} else {
-			VT = totalConducoes;
+			VT = totalVT;
 		}
 		return VT;
 	}

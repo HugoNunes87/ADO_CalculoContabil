@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Funcionario {
 	static public String nome;
-	static public double salario, salarioTributavel, vt, totalVT, vr, convenioMedico, va, irpf, inss, horasExtras, jornadaTrabalho, bonus;
-	static boolean recebeVT;
+	static public double salario, salarioTributavel, totalVT, totalVR, convenioMedico, totalVA, irpf, inss, horasExtras, jornadaTrabalho, bonus;
 	static public int quantDependente;
         
 	
@@ -61,8 +60,7 @@ public class Funcionario {
 					funcionarios[i].totalVT = reader.nextDouble();
 					break;
 				case "n":
-					funcionarios[i].recebeVT = false;
-					totalVT = 0;
+					funcionarios[i].totalVT = 0;
 					break;
 				default:
 					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
@@ -164,10 +162,15 @@ public class Funcionario {
 			} while (!quantDep.equals("s") && !quantDep.equals("n"));
                         
                         System.out.println(funcionarios[i].nome +" " + funcionarios[i].salario +" "+ funcionarios[i].totalVT  + " " + funcionarios[i].jornadaTrabalho + " " + funcionarios[i].horasExtras+ " " + funcionarios[i].quantDependente);
+                        
+
+                        
                         // Descontos
                         
                         
-                        // Salario total bruno (Tributavel)
+                        
+                        
+                       
                         
                         //funcionarios[i].salarioTributavel = Ganhos.GanhosTotais(salarioBruto, , hrExtra, qtdFuncionarios);
                         
