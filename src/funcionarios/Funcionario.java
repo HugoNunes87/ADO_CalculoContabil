@@ -19,6 +19,10 @@ public class Funcionario {
 		String opJornada;
 		String opBoni;
 		String quantDep;
+		String opVR;
+		String opVA;
+		String opCV;
+                
 		
 		System.out.println(" _______________________________________________________________");
 		System.out.println("|\t\t\t\t\t\t\t\t|");
@@ -135,7 +139,7 @@ public class Funcionario {
                                         reader.nextLine();
 					break;
 				case "n":				
-					bonus = 0;
+					funcionarios[i].bonus = 0;
 					break;
 				default:
 					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
@@ -154,7 +158,7 @@ public class Funcionario {
                                         reader.nextLine();
 					break;
 				case "n":				
-					bonus = 0;
+					funcionarios[i].quantDependente = 0;
 					break;
 				default:
 					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
@@ -166,6 +170,63 @@ public class Funcionario {
 
                         
                         // Descontos
+                        
+                        do { // Desconto do VR
+				System.out.print("O funcionário possuí Vale-Refeição?(s/n)");
+				opVR = reader.nextLine();
+                                
+			switch (opVR){
+				case "s":
+					System.out.printf("|\tDigite o valor do Vale-Refeição R$: ");
+					funcionarios[i].totalVR = reader.nextDouble();
+                                        reader.nextLine();
+					break;
+				case "n":				
+					funcionarios[i].totalVR = 0;
+					break;
+				default:
+					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
+				}
+			} while (!opVR.equals("s") && !opVR.equals("n"));    
+                        
+                        
+                        do { // Desconto do VA
+				System.out.print("O funcionário possuí Vale-Alimentação?(s/n)");
+				opVR = reader.nextLine();
+                                
+			switch (opVR){
+				case "s":
+					System.out.printf("|\tDigite o valor do Vale-Alimentação R$: ");
+					funcionarios[i].totalVA = reader.nextDouble();
+                                        reader.nextLine();
+					break;
+				case "n":				
+					funcionarios[i].totalVA = 0;
+					break;
+				default:
+					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
+				}
+			} while (!opVR.equals("s") && !opVR.equals("n"));
+                        
+                        
+                        
+                        do { // Desconto do Convenio Medico
+				System.out.print("O funcionário possuí Convenio Medico ?(s/n)");
+				opVR = reader.nextLine();
+                                
+			switch (opVR){
+				case "s":
+					System.out.printf("|\tDigite o valor do Convenio Medico R$: ");
+					funcionarios[i].convenioMedico = reader.nextDouble();
+                                        reader.nextLine();
+					break;
+				case "n":				
+					funcionarios[i].convenioMedico  = 0;
+					break;
+				default:
+					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
+				}
+			} while (!opVR.equals("s") && !opVR.equals("n")); 
                         
                         
                         
