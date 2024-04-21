@@ -13,10 +13,9 @@ public class Ganhos {
 	}
 	
 	
-	public static double GanhosTotais(double salarioPadrao, double bonusFuncionario, double horasExtras, int cargaHorariaMensal){
-		salario = salarioPadrao;
+	public static double GanhosTotais(double salario, double bonusFuncionario, double horasExtras, int cargaHorariaMensal){
 		
-		horaExtra = Ganhos.HoraExtra(salarioPadrao, cargaHorariaMensal, horasExtras);
+		horaExtra = Ganhos.HoraExtra(salario, cargaHorariaMensal, horasExtras);
 		
 		bonus = bonusFuncionario;
 		

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Funcionario {
 	static public String nome;
-	static public double salarioBruto, salarioLiquido, vt, totalVT, vr, convenioMedico, va, irpf, inss, hrExtra, bonus, jnHora;
+	static public double salario, salarioTributavel, vt, totalVT, vr, convenioMedico, va, irpf, inss, horasExtras, jornadaTrabalho, bonus;
 	static boolean recebeVT;
 	static public int quantDependente;
         
@@ -48,7 +48,7 @@ public class Funcionario {
 			System.out.print("|\t Digite o nome: ");
 			funcionarios[i].nome = reader.nextLine();
 			System.out.printf("|\tDigite o salário bruto de %s: ", Funcionario.PrimeiroNome(funcionarios[i].nome));
-			funcionarios[i].salarioBruto = reader.nextDouble();
+			funcionarios[i].salario = reader.nextDouble();
 			reader.nextLine();
 			
 			do{ // saber se o funcionario recebe o vt e retornando para a pergunta caso a resposta seja invalida
@@ -68,55 +68,58 @@ public class Funcionario {
 					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
 				}
 			} while (!opcaovt.equals("s") && !opcaovt.equals("n"));
-			
-			//System.out.println(funcionarios[i].nome +" " + funcionarios[i].salarioBruto +" "+ funcionarios[i].totalVT);
+						
 			
 			
 			//precisa saber se ele fez hora extra e se ele tem bonus. dps disso é só jogar as variaveis nos metodos de descontos e ganhos
 
                         
-                        int HR = 1;                       
-                        while (HR == 1) {
+                        int horas = 0;
+                        do {
                             System.out.println("| --------------------------------------------\n");
                             System.out.println("| Selecione a jornada de horas para o funcionário: \n1. 220 horas \n2. 200 horas\n3. 180 horas");
                             System.out.println("| --------------------------------------------\n");
                             System.out.printf("Digite sua escolha: ");
-                            int horas = reader.nextInt();
+                            horas = reader.nextInt();
                             reader.nextLine();
                             switch (horas) {
-                                case 1 -> {
-                                    funcionarios[i].jnHora = 220;
-                                    HR = 0;
+                                case 1 : {
+                                    funcionarios[i].jornadaTrabalho = 220;
+                                    break;
                                 }
-                                case 2 -> {
-                                    funcionarios[i].jnHora = 200;
-                                    HR = 0;
+                                case 2 : {
+                                    funcionarios[i].jornadaTrabalho = 200;
+                                    break;
                                 }
-                                case 3 -> {
-                                    funcionarios[i].jnHora = 180;
-                                    HR = 0;
+                                case 3 : {
+                                    funcionarios[i].jornadaTrabalho = 180;
+                                    break;
                                 }
-                                default ->
-                                    System.out.println("Opção inválida.");
-                            }
+                                default :
+                                    System.out.println("Opção inválida, selecione numero de 1 a 3!");
+                            } 
+                        } while (horas != 1 && horas != 2 && horas != 3);
 
-                        }
+                        
+                        
                         System.out.println("| \n--------------------------------------------\n");                       
                         
                                               
                         do { // Calculo Horas Extras
 				System.out.print("O funcionário possuí horas extras?(s/n)");
 				ophrextra = reader.nextLine();
+                                
 			switch (ophrextra){
 				case "s":
                                         System.out.println("\nInforma a quantidade de horas extras realizadas no mês:");
-                                        System.out.printf("Quantidade de horas extras: ");
-                                        
-                                        double HRExtra = reader.nextDouble();
-                                        Ganhos.HoraExtra(funcionarios[i].salarioBruto, funcionarios[i].jnHora, HRExtra);                                  
+                                        System.out.printf("Quantidade de horas extras: ");                                      
+                                        funcionarios[i].horasExtras= reader.nextDouble();
+                                        reader.nextLine();
 					break;
 				case "n":
                                     System.out.println("Funcionario não recebe Horas Extras");
+                                    funcionarios[i].horasExtras = 0;
+                                    break;
 				default:
 					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
 				}
@@ -126,6 +129,7 @@ public class Funcionario {
                         do { // Calculo Bonus
 				System.out.print("O funcionário possuí alguma Bonificação?(s/n)");
 				opBoni = reader.nextLine();
+                                
 			switch (opBoni){
 				case "s":
 					System.out.printf("|\tDigite o valor da bonicação R$: ");
@@ -141,6 +145,7 @@ public class Funcionario {
 			} while (!opBoni.equals("s") && !opBoni.equals("n"));
                         
                         
+
                         do { // Inserir Quantidade de Dependentes
 				System.out.print("O funcionáio possui dependentes?(s/n)");
 				quantDep = reader.nextLine();
@@ -158,20 +163,27 @@ public class Funcionario {
 				}
 			} while (!quantDep.equals("s") && !quantDep.equals("n"));
                         
-                        
+                        System.out.println(funcionarios[i].nome +" " + funcionarios[i].salario +" "+ funcionarios[i].totalVT  + " " + funcionarios[i].jornadaTrabalho + " " + funcionarios[i].horasExtras+ " " + funcionarios[i].quantDependente);
                         // Descontos
-                        // 
+                        
+                        
+                        // Salario total bruno (Tributavel)
+                        
+                        //funcionarios[i].salarioTributavel = Ganhos.GanhosTotais(salarioBruto, , hrExtra, qtdFuncionarios);
                         
                         
                         
-		}
-	}
-	
-    public static String PrimeiroNome(String nome) { //método para pegar o primeiro nome do funcionario
+            }
+        }
+        public static String PrimeiroNome(String nome) { //método para pegar o primeiro nome do funcionario
         int index = nome.lastIndexOf(' ');
         if (index == -1) {
             return nome; // Se não houver espaço, retorna o nome completo
         }
         return nome.substring(0, index);
     }
+       
 }
+	
+
+
