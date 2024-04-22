@@ -25,20 +25,13 @@ public class Funcionario {
 		String opVA;
 		String opCV;
 
-		System.out.println(" _______________________________________________________________");
-		System.out.println("|\t\t\t\t\t\t\t\t|");
-		System.out.println("|\t\t\t Bem vindo ao Holeri+ \t\t\t|");
-		System.out.println("|_______________________________________________________________|");
-		// System.out.printf(" Digite quantos funcionarios você deseja
-		// cadastrar: ");
-		// int qtdFuncionarios = reader.nextInt();
-		// reader.nextLine();
 
 		int qtdFuncionarios = 0; // Variável para armazenar o número de
 									// funcionários
 
 		while (true) {
 			try {
+				System.out.println(" _______________________________________________________________ ");
 				System.out.print("\tDigite quantos funcionários você deseja cadastrar: ");
 				qtdFuncionarios = Integer.parseInt(reader.nextLine());
 				break; // Sai do loop se a entrada for um número inteiro válido
@@ -223,11 +216,11 @@ public class Funcionario {
 			} while (!opVR.equals("s") && !opVR.equals("n"));
 			
 
-			double DescontoVR = Descontos.ValeRefeicao(salario, totalVR);
+			float DescontoVR = (float) Descontos.ValeRefeicao(salario, totalVR); //1º casting
 
-			double totalDescontos = Descontos.INSS(salario) + Descontos.IRPF(salario, quantDependente)
+			float totalDescontos = (float) (Descontos.INSS(salario) + Descontos.IRPF(salario, quantDependente) //2º casting
 					+ Descontos.ValeTransporte(salario, totalVT) + Descontos.ValeRefeicao(salario, totalVR)
-					+ Descontos.ValeAlimentacao(salario, totalVA) + Descontos.ConvenioMedico(salario);
+					+ Descontos.ValeAlimentacao(salario, totalVA) + Descontos.ConvenioMedico(salario));
 			double salarioBruto = Ganhos.GanhosTotais(salario, bonus, horasExtras, jornadaTrabalho);
 			double salarioLiquido = salarioBruto - totalDescontos;
 
