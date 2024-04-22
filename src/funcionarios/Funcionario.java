@@ -25,7 +25,6 @@ public class Funcionario {
 		String opVA;
 		String opCV;
 
-
 		int qtdFuncionarios = 0; // Variável para armazenar o número de
 									// funcionários
 
@@ -154,7 +153,7 @@ public class Funcionario {
 					System.out.println("\tResposta Inválida, por favor selecione 's' para sim e 'n' para não");
 				}
 			} while (!quantDep.equals("s") && !quantDep.equals("n"));
-			
+
 			System.out.println(" _______________________________________________________________ ");
 
 			do { // Desconto do VR
@@ -174,7 +173,7 @@ public class Funcionario {
 					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
 				}
 			} while (!opVR.equals("s") && !opVR.equals("n"));
-			
+
 			System.out.println(" _______________________________________________________________ ");
 
 			do { // Desconto do VA
@@ -194,7 +193,7 @@ public class Funcionario {
 					System.out.println("\tResposta Inválida, por favor selecione 's' para sim e 'n' para não");
 				}
 			} while (!opVR.equals("s") && !opVR.equals("n"));
-			
+
 			System.out.println(" _______________________________________________________________ ");
 
 			do { // Desconto do Convenio Medico
@@ -214,11 +213,12 @@ public class Funcionario {
 					System.out.println("Resposta Inválida, por favor selecione 's' para sim e 'n' para não");
 				}
 			} while (!opVR.equals("s") && !opVR.equals("n"));
-			
 
-			float DescontoVR = (float) Descontos.ValeRefeicao(salario, totalVR); //1º casting
+			float DescontoVR = (float) Descontos.ValeRefeicao(salario, totalVR); // 1º
+																					// casting
 
-			float totalDescontos = (float) (Descontos.INSS(salario) + Descontos.IRPF(salario, quantDependente) //2º casting
+			float totalDescontos = (float) (Descontos.INSS(salario) + Descontos.IRPF(salario, quantDependente) // 2º
+																												// casting
 					+ Descontos.ValeTransporte(salario, totalVT) + Descontos.ValeRefeicao(salario, totalVR)
 					+ Descontos.ValeAlimentacao(salario, totalVA) + Descontos.ConvenioMedico(salario));
 			double salarioBruto = Ganhos.GanhosTotais(salario, bonus, horasExtras, jornadaTrabalho);
@@ -271,7 +271,9 @@ public class Funcionario {
 
 	}
 
-	public static String PrimeiroNome(String nome) { // método para pegar o primeiro nome do funcionario
+	public static String PrimeiroNome(String nome) { // método para pegar o
+														// primeiro nome do
+														// funcionario
 		int index = nome.lastIndexOf(' ');
 		if (index == -1) {
 			return nome; // Se não houver espaço, retorna o nome completo

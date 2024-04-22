@@ -15,7 +15,7 @@ public class ImpressaoHolerite {
 		System.out.println("|\t\t\t Bem vindo ao Holeri+ \t\t\t|");
 		System.out.println("|_______________________________________________________________|");
 
-		do { 
+		do {
 			System.out.printf("\tVocê quer iniciar o programa? (s/n): ");
 			iniciarPrograma = reader.nextLine();
 
