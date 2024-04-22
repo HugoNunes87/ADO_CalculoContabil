@@ -24,13 +24,13 @@ public class Descontos {
 			return INSS;
 	}
 	
-	public static double IRPF(double salario, int dependentes){
+	public static double IRPF(double salarioBruto, int dependentes){
 		
-		INSS(salario);
+		INSS(salarioBruto);
 		
 		double descontoDependentes = dependentes*189.59;
 		double descontosTotais = INSS + descontoDependentes;
-		double salarioFinalIRPF = salario - descontosTotais;
+		double salarioFinalIRPF = salarioBruto - descontosTotais;
 		
 		if(salarioFinalIRPF < 2112){
 			IRPF = 0;
@@ -82,10 +82,8 @@ public class Descontos {
 	public static double ValeAlimentacao(double salario, double totalVA){
 		if(salario <= 4.236){ //3 salarios minimos
 			VA = 0;
-		} else if((salario*0.02) > totalVA*0.2){ //o desconto maximo do funcionario é 20% do valor do VA
-			VA = totalVA*0.2;
 		} else{
-			VA = salario*0.02;
+			VA = totalVA*0.02;
 		}
 		return VA;
 	}

@@ -9,5 +9,7 @@ public class ImpressaoHolerite {
 
 	public static void main(String[] args) {
 		Funcionario.CadastroFuncionario();
+		
+		
 	}
 }
